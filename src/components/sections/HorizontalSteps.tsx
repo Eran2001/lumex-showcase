@@ -5,14 +5,14 @@ const STEPS = [
 ];
 
 export const HorizontalSteps = () => (
-  <section className="relative" style={{ height: "300vh" }}>
+  <section className="hijack-section relative" style={{ height: "360vh" }}>
     <div className="sticky top-0 h-screen overflow-hidden bg-secondary/40">
       <div className="h-full flex items-center">
         <div className="hijack-track flex h-full" style={{ width: "300%" }}>
           {STEPS.map((s) => (
             <div key={s.n} className="w-1/3 h-full flex items-center justify-center px-12">
-              <div className="max-w-xl">
-                <div className="text-7xl font-bold text-primary/30 mb-4">{s.n}</div>
+              <div className="step-card max-w-xl rounded-2xl border bg-card/90 p-10 shadow-2xl shadow-primary/10">
+                <div className="text-8xl font-bold text-primary/30 mb-4">{s.n}</div>
                 <h3 className="text-4xl md:text-5xl font-bold mb-4">{s.title}</h3>
                 <p className="text-lg text-muted-foreground">{s.desc}</p>
               </div>
