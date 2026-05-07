@@ -183,11 +183,18 @@
   .d-6 { animation-delay: var(--delay-6); }
 }
 
-/* Performance: contain + content-visibility on sections */
+/* Performance: contain on sections (no content-visibility — it breaks view() timelines) */
 .section-perf {
   contain: layout style paint;
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 800px;
+}
+
+/* Fallback for browsers without scroll-driven animations support */
+@supports not (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal, .reveal-scale, .reveal-bold, .reveal-rotate, .word-reveal, .row-reveal {
+      animation: fade-up 0.7s ease-out both;
+    }
+  }
 }
 
 /* Hero grid background */
