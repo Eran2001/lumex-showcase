@@ -25,6 +25,7 @@ export const Stats = () => {
         scrollTrigger: {
           trigger: ref.current,
           start: "top 80%",
+          toggleActions: "play none none reverse",
         },
       });
     },

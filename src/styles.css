@@ -59,7 +59,9 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     -webkit-font-smoothing: antialiased;
+    cursor: none;
   }
+  a, button, [role="button"] { cursor: none; }
   html { scroll-behavior: smooth; }
 }
 
@@ -74,3 +76,4 @@
     url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><path d='M40 0H0v40' fill='none' stroke='%23e4e4e7' stroke-width='1'/></svg>");
   background-size: 40px 40px;
 }
+

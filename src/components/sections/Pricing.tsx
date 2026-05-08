@@ -74,7 +74,7 @@ export const Pricing = () => {
         opacity: 0,
         duration: 0.9,
         ease: "power3.out",
-        scrollTrigger: { trigger: ".pricing-heading", start: "top 85%" },
+        scrollTrigger: { trigger: ".pricing-heading", start: "top 85%", toggleActions: "play none none reverse" },
       });
 
       gsap.from(".pricing-table", {
@@ -82,7 +82,7 @@ export const Pricing = () => {
         opacity: 0,
         duration: 0.8,
         ease: "power3.out",
-        scrollTrigger: { trigger: ".pricing-table", start: "top 85%" },
+        scrollTrigger: { trigger: ".pricing-table", start: "top 85%", toggleActions: "play none none reverse" },
       });
 
       gsap.from(".price-row", {
@@ -91,7 +91,7 @@ export const Pricing = () => {
         duration: 0.45,
         stagger: 0.07,
         ease: "power2.out",
-        scrollTrigger: { trigger: ".price-row", start: "top 88%" },
+        scrollTrigger: { trigger: ".price-row", start: "top 88%", toggleActions: "play none none reverse" },
       });
     },
     { scope: ref },

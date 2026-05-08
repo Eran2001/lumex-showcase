@@ -44,7 +44,7 @@ export const Integrations = () => {
         opacity: 0,
         duration: 0.9,
         ease: "power3.out",
-        scrollTrigger: { trigger: ".integrations-heading", start: "top 85%" },
+        scrollTrigger: { trigger: ".integrations-heading", start: "top 85%", toggleActions: "play none none reverse" },
       });
 
       gsap.from(".integration-card", {
@@ -53,14 +53,14 @@ export const Integrations = () => {
         duration: 0.7,
         stagger: 0.12,
         ease: "power3.out",
-        scrollTrigger: { trigger: ".integration-card", start: "top 88%" },
+        scrollTrigger: { trigger: ".integration-card", start: "top 88%", toggleActions: "play none none reverse" },
       });
 
       gsap.from(".integrations-footer", {
         opacity: 0,
         duration: 0.6,
         ease: "power2.out",
-        scrollTrigger: { trigger: ".integrations-footer", start: "top 90%" },
+        scrollTrigger: { trigger: ".integrations-footer", start: "top 90%", toggleActions: "play none none reverse" },
       });
     },
     { scope: ref },

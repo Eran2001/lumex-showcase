@@ -45,7 +45,7 @@ export const Faq = () => {
         opacity: 0,
         duration: 0.9,
         ease: "power3.out",
-        scrollTrigger: { trigger: ".faq-heading", start: "top 85%" },
+        scrollTrigger: { trigger: ".faq-heading", start: "top 85%", toggleActions: "play none none reverse" },
       });
 
       gsap.from(".faq-item", {
@@ -54,7 +54,7 @@ export const Faq = () => {
         duration: 0.55,
         stagger: 0.1,
         ease: "power3.out",
-        scrollTrigger: { trigger: ".faq-item", start: "top 88%" },
+        scrollTrigger: { trigger: ".faq-item", start: "top 88%", toggleActions: "play none none reverse" },
       });
     },
     { scope: ref },

@@ -19,6 +19,7 @@ export const Logos = () => {
         scrollTrigger: {
           trigger: ref.current,
           start: "top 85%",
+          toggleActions: "play none none reverse",
         },
       });
     },

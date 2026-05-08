@@ -31,7 +31,7 @@ export const Testimonials = () => {
         opacity: 0,
         duration: 0.9,
         ease: "power3.out",
-        scrollTrigger: { trigger: ".testimonials-heading", start: "top 85%" },
+        scrollTrigger: { trigger: ".testimonials-heading", start: "top 85%", toggleActions: "play none none reverse" },
       });
 
       gsap.from(".testimonial-card", {
@@ -43,7 +43,7 @@ export const Testimonials = () => {
         duration: 1,
         stagger: 0.18,
         ease: "power4.out",
-        scrollTrigger: { trigger: ".testimonial-card", start: "top 85%" },
+        scrollTrigger: { trigger: ".testimonial-card", start: "top 85%", toggleActions: "play none none reverse" },
       });
     },
     { scope: ref },

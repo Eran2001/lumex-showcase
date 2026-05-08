@@ -16,7 +16,7 @@ export const CtaBanner = () => {
         duration: 0.6,
         stagger: 0.07,
         ease: "power3.out",
-        scrollTrigger: { trigger: ref.current, start: "top 80%" },
+        scrollTrigger: { trigger: ref.current, start: "top 80%", toggleActions: "play none none reverse" },
       });
 
       gsap.from(".cta-btn", {
@@ -25,7 +25,7 @@ export const CtaBanner = () => {
         duration: 0.6,
         delay: 0.35,
         ease: "back.out(1.4)",
-        scrollTrigger: { trigger: ref.current, start: "top 80%" },
+        scrollTrigger: { trigger: ref.current, start: "top 80%", toggleActions: "play none none reverse" },
       });
     },
     { scope: ref },

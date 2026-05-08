@@ -1,3 +1,4 @@
+import { AnimatedCursor } from "@/components/AnimatedCursor";
 import { ProgressBar } from "@/components/sections/ProgressBar";
 import { Hero } from "@/components/sections/Hero";
 import { DashboardPreview } from "@/components/sections/DashboardPreview";
@@ -14,6 +15,8 @@ import { Footer } from "@/components/sections/Footer";
 
 export default function App() {
   return (
+    <>
+      <AnimatedCursor />
     <main className="bg-background text-foreground">
       <ProgressBar />
       <Hero />
@@ -29,5 +32,6 @@ export default function App() {
       <CtaBanner />
       <Footer />
     </main>
+    </>
   );
 }

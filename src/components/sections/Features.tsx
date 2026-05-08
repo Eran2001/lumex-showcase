@@ -37,7 +37,7 @@ export const Features = () => {
         opacity: 0,
         duration: 0.9,
         ease: "power3.out",
-        scrollTrigger: { trigger: ".features-heading", start: "top 85%" },
+        scrollTrigger: { trigger: ".features-heading", start: "top 85%", toggleActions: "play none none reverse" },
       });
 
       gsap.from(".feature-card", {
@@ -46,7 +46,7 @@ export const Features = () => {
         duration: 0.7,
         stagger: 0.12,
         ease: "power3.out",
-        scrollTrigger: { trigger: ".feature-card", start: "top 88%" },
+        scrollTrigger: { trigger: ".feature-card", start: "top 88%", toggleActions: "play none none reverse" },
       });
     },
     { scope: ref },

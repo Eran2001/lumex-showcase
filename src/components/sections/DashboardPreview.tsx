@@ -24,7 +24,7 @@ export const DashboardPreview = () => {
         opacity: 0,
         duration: 0.9,
         ease: "power3.out",
-        scrollTrigger: { trigger: ".dash-heading", start: "top 85%" },
+        scrollTrigger: { trigger: ".dash-heading", start: "top 85%", toggleActions: "play none none reverse" },
       });
 
       gsap.from(".dash-chrome", {
@@ -33,7 +33,7 @@ export const DashboardPreview = () => {
         scale: 0.97,
         duration: 1,
         ease: "power3.out",
-        scrollTrigger: { trigger: ".dash-chrome", start: "top 85%" },
+        scrollTrigger: { trigger: ".dash-chrome", start: "top 85%", toggleActions: "play none none reverse" },
       });
 
       gsap.from(".metric-card", {
@@ -43,7 +43,7 @@ export const DashboardPreview = () => {
         duration: 0.55,
         stagger: 0.1,
         ease: "back.out(1.4)",
-        scrollTrigger: { trigger: ".metric-card", start: "top 90%" },
+        scrollTrigger: { trigger: ".metric-card", start: "top 90%", toggleActions: "play none none reverse" },
       });
 
       gsap.from(".bar-col", {
@@ -52,7 +52,7 @@ export const DashboardPreview = () => {
         stagger: 0.04,
         ease: "power2.out",
         transformOrigin: "bottom center",
-        scrollTrigger: { trigger: ".bar-col", start: "top 90%" },
+        scrollTrigger: { trigger: ".bar-col", start: "top 90%", toggleActions: "play none none reverse" },
       });
     },
     { scope: ref },
