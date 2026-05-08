@@ -37,37 +37,42 @@ const CATEGORIES: Category[] = [
 export const Integrations = () => {
   const ref = useRef<HTMLElement>(null);
 
-  useGSAP(() => {
-    gsap.from(".integrations-heading", {
-      y: 40,
-      opacity: 0,
-      duration: 0.9,
-      ease: "power3.out",
-      scrollTrigger: { trigger: ".integrations-heading", start: "top 85%" },
-    });
+  useGSAP(
+    () => {
+      gsap.from(".integrations-heading", {
+        y: 40,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power3.out",
+        scrollTrigger: { trigger: ".integrations-heading", start: "top 85%" },
+      });
 
-    gsap.from(".integration-card", {
-      y: 60,
-      opacity: 0,
-      duration: 0.7,
-      stagger: 0.12,
-      ease: "power3.out",
-      scrollTrigger: { trigger: ".integration-card", start: "top 88%" },
-    });
+      gsap.from(".integration-card", {
+        y: 60,
+        opacity: 0,
+        duration: 0.7,
+        stagger: 0.12,
+        ease: "power3.out",
+        scrollTrigger: { trigger: ".integration-card", start: "top 88%" },
+      });
 
-    gsap.from(".integrations-footer", {
-      opacity: 0,
-      duration: 0.6,
-      ease: "power2.out",
-      scrollTrigger: { trigger: ".integrations-footer", start: "top 90%" },
-    });
-  }, { scope: ref });
+      gsap.from(".integrations-footer", {
+        opacity: 0,
+        duration: 0.6,
+        ease: "power2.out",
+        scrollTrigger: { trigger: ".integrations-footer", start: "top 90%" },
+      });
+    },
+    { scope: ref },
+  );
 
   return (
     <section ref={ref} className="section-perf py-28 bg-secondary/30">
       <div className="max-w-6xl mx-auto px-6">
         <div className="integrations-heading text-center max-w-2xl mx-auto mb-16">
-          <Badge variant="secondary" className="mb-4">Integrations</Badge>
+          <Badge variant="secondary" className="mb-4">
+            Integrations
+          </Badge>
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
             Connects to your whole stack
           </h2>

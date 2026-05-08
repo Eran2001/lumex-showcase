@@ -1,12 +1,7 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/lib/gsap";
-import {
-  type ColumnDef,
-  flexRender,
-  getCoreRowModel,
-  useReactTable,
-} from "@tanstack/react-table";
+import { type ColumnDef, flexRender, getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { Check, X } from "lucide-react";
 
 type CellValue = boolean | string;
@@ -19,21 +14,23 @@ interface PricingRow {
 }
 
 const DATA: PricingRow[] = [
-  { feature: "API calls / month",  starter: "100K",      pro: "10M",       enterprise: "Unlimited"   },
-  { feature: "Team seats",         starter: "3",         pro: "25",        enterprise: "Unlimited"   },
-  { feature: "Storage",            starter: "10 GB",     pro: "1 TB",      enterprise: "Custom"      },
-  { feature: "Support",            starter: "Community", pro: "Priority",  enterprise: "Dedicated CSM"},
-  { feature: "Advanced analytics", starter: false,       pro: true,        enterprise: true           },
-  { feature: "SSO / SAML",         starter: false,       pro: false,       enterprise: true           },
-  { feature: "99.99% SLA",         starter: false,       pro: false,       enterprise: true           },
-  { feature: "Custom domains",     starter: false,       pro: true,        enterprise: true           },
+  { feature: "API calls / month", starter: "100K", pro: "10M", enterprise: "Unlimited" },
+  { feature: "Team seats", starter: "3", pro: "25", enterprise: "Unlimited" },
+  { feature: "Storage", starter: "10 GB", pro: "1 TB", enterprise: "Custom" },
+  { feature: "Support", starter: "Community", pro: "Priority", enterprise: "Dedicated CSM" },
+  { feature: "Advanced analytics", starter: false, pro: true, enterprise: true },
+  { feature: "SSO / SAML", starter: false, pro: false, enterprise: true },
+  { feature: "99.99% SLA", starter: false, pro: false, enterprise: true },
+  { feature: "Custom domains", starter: false, pro: true, enterprise: true },
 ];
 
 const renderCell = (v: CellValue) => {
   if (typeof v === "boolean") {
-    return v
-      ? <Check className="w-5 h-5 text-primary mx-auto" aria-label="Included" />
-      : <X     className="w-5 h-5 text-muted-foreground/50 mx-auto" aria-label="Not included" />;
+    return v ? (
+      <Check className="w-5 h-5 text-primary mx-auto" aria-label="Included" />
+    ) : (
+      <X className="w-5 h-5 text-muted-foreground/50 mx-auto" aria-label="Not included" />
+    );
   }
   return <span className="text-sm">{v}</span>;
 };
@@ -70,32 +67,35 @@ export const Pricing = () => {
     getCoreRowModel: getCoreRowModel(),
   });
 
-  useGSAP(() => {
-    gsap.from(".pricing-heading", {
-      y: 40,
-      opacity: 0,
-      duration: 0.9,
-      ease: "power3.out",
-      scrollTrigger: { trigger: ".pricing-heading", start: "top 85%" },
-    });
+  useGSAP(
+    () => {
+      gsap.from(".pricing-heading", {
+        y: 40,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power3.out",
+        scrollTrigger: { trigger: ".pricing-heading", start: "top 85%" },
+      });
 
-    gsap.from(".pricing-table", {
-      y: 50,
-      opacity: 0,
-      duration: 0.8,
-      ease: "power3.out",
-      scrollTrigger: { trigger: ".pricing-table", start: "top 85%" },
-    });
+      gsap.from(".pricing-table", {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: { trigger: ".pricing-table", start: "top 85%" },
+      });
 
-    gsap.from(".price-row", {
-      x: -30,
-      opacity: 0,
-      duration: 0.45,
-      stagger: 0.07,
-      ease: "power2.out",
-      scrollTrigger: { trigger: ".price-row", start: "top 88%" },
-    });
-  }, { scope: ref });
+      gsap.from(".price-row", {
+        x: -30,
+        opacity: 0,
+        duration: 0.45,
+        stagger: 0.07,
+        ease: "power2.out",
+        scrollTrigger: { trigger: ".price-row", start: "top 88%" },
+      });
+    },
+    { scope: ref },
+  );
 
   return (
     <section ref={ref} className="section-perf py-28 bg-secondary/30">

@@ -18,7 +18,10 @@ export const Footer = () => (
           <ul className="space-y-2">
             {c.links.map((l) => (
               <li key={l}>
-                <a className="text-sm text-muted-foreground hover:text-foreground transition-colors" href="#">
+                <a
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  href="#"
+                >
                   {l}
                 </a>
               </li>

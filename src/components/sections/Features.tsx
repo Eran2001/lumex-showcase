@@ -5,33 +5,52 @@ import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/ca
 import { Bolt, LineChart, Lock, Workflow } from "lucide-react";
 
 const FEATURES = [
-  { icon: Bolt,      title: "Sub-second queries",    desc: "Vector + columnar engine returns answers in <300ms at any scale." },
-  { icon: LineChart, title: "Live dashboards",        desc: "Push updates without refresh — stream straight from your warehouse." },
-  { icon: Lock,      title: "Enterprise security",    desc: "SOC 2 Type II, HIPAA, and row-level access controls baked in." },
-  { icon: Workflow,  title: "Composable pipelines",   desc: "Drag-and-drop transforms or bring your own SQL and dbt models." },
+  {
+    icon: Bolt,
+    title: "Sub-second queries",
+    desc: "Vector + columnar engine returns answers in <300ms at any scale.",
+  },
+  {
+    icon: LineChart,
+    title: "Live dashboards",
+    desc: "Push updates without refresh — stream straight from your warehouse.",
+  },
+  {
+    icon: Lock,
+    title: "Enterprise security",
+    desc: "SOC 2 Type II, HIPAA, and row-level access controls baked in.",
+  },
+  {
+    icon: Workflow,
+    title: "Composable pipelines",
+    desc: "Drag-and-drop transforms or bring your own SQL and dbt models.",
+  },
 ];
 
 export const Features = () => {
   const ref = useRef<HTMLElement>(null);
 
-  useGSAP(() => {
-    gsap.from(".features-heading", {
-      y: 40,
-      opacity: 0,
-      duration: 0.9,
-      ease: "power3.out",
-      scrollTrigger: { trigger: ".features-heading", start: "top 85%" },
-    });
+  useGSAP(
+    () => {
+      gsap.from(".features-heading", {
+        y: 40,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power3.out",
+        scrollTrigger: { trigger: ".features-heading", start: "top 85%" },
+      });
 
-    gsap.from(".feature-card", {
-      y: 70,
-      opacity: 0,
-      duration: 0.7,
-      stagger: 0.12,
-      ease: "power3.out",
-      scrollTrigger: { trigger: ".feature-card", start: "top 88%" },
-    });
-  }, { scope: ref });
+      gsap.from(".feature-card", {
+        y: 70,
+        opacity: 0,
+        duration: 0.7,
+        stagger: 0.12,
+        ease: "power3.out",
+        scrollTrigger: { trigger: ".feature-card", start: "top 88%" },
+      });
+    },
+    { scope: ref },
+  );
 
   return (
     <section ref={ref} className="section-perf py-28">

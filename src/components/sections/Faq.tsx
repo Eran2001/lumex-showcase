@@ -38,24 +38,27 @@ const QUESTIONS = [
 export const Faq = () => {
   const ref = useRef<HTMLElement>(null);
 
-  useGSAP(() => {
-    gsap.from(".faq-heading", {
-      y: 40,
-      opacity: 0,
-      duration: 0.9,
-      ease: "power3.out",
-      scrollTrigger: { trigger: ".faq-heading", start: "top 85%" },
-    });
+  useGSAP(
+    () => {
+      gsap.from(".faq-heading", {
+        y: 40,
+        opacity: 0,
+        duration: 0.9,
+        ease: "power3.out",
+        scrollTrigger: { trigger: ".faq-heading", start: "top 85%" },
+      });
 
-    gsap.from(".faq-item", {
-      x: -40,
-      opacity: 0,
-      duration: 0.55,
-      stagger: 0.1,
-      ease: "power3.out",
-      scrollTrigger: { trigger: ".faq-item", start: "top 88%" },
-    });
-  }, { scope: ref });
+      gsap.from(".faq-item", {
+        x: -40,
+        opacity: 0,
+        duration: 0.55,
+        stagger: 0.1,
+        ease: "power3.out",
+        scrollTrigger: { trigger: ".faq-item", start: "top 88%" },
+      });
+    },
+    { scope: ref },
+  );
 
   return (
     <section ref={ref} className="section-perf py-28">

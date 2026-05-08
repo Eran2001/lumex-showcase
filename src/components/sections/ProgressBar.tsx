@@ -19,7 +19,7 @@ export const ProgressBar = () => {
   });
 
   return (
-    <div className="fixed top-0 left-0 right-0 h-[2px] z-50">
+    <div className="fixed top-0 left-0 right-0 h-0.5 z-50">
       <div
         ref={barRef}
         className="h-full w-full bg-primary origin-left"
@@ -28,4 +28,3 @@ export const ProgressBar = () => {
     </div>
   );
 };
-
