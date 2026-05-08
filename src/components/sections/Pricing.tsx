@@ -1,3 +1,6 @@
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import { gsap } from "@/lib/gsap";
 import {
   type ColumnDef,
   flexRender,
@@ -16,21 +19,21 @@ interface PricingRow {
 }
 
 const DATA: PricingRow[] = [
-  { feature: "API calls / month", starter: "100K", pro: "10M", enterprise: "Unlimited" },
-  { feature: "Team seats", starter: "3", pro: "25", enterprise: "Unlimited" },
-  { feature: "Storage", starter: "10 GB", pro: "1 TB", enterprise: "Custom" },
-  { feature: "Support", starter: "Community", pro: "Priority", enterprise: "Dedicated CSM" },
-  { feature: "Advanced analytics", starter: false, pro: true, enterprise: true },
-  { feature: "SSO / SAML", starter: false, pro: false, enterprise: true },
-  { feature: "99.99% SLA", starter: false, pro: false, enterprise: true },
-  { feature: "Custom domains", starter: false, pro: true, enterprise: true },
+  { feature: "API calls / month",  starter: "100K",      pro: "10M",       enterprise: "Unlimited"   },
+  { feature: "Team seats",         starter: "3",         pro: "25",        enterprise: "Unlimited"   },
+  { feature: "Storage",            starter: "10 GB",     pro: "1 TB",      enterprise: "Custom"      },
+  { feature: "Support",            starter: "Community", pro: "Priority",  enterprise: "Dedicated CSM"},
+  { feature: "Advanced analytics", starter: false,       pro: true,        enterprise: true           },
+  { feature: "SSO / SAML",         starter: false,       pro: false,       enterprise: true           },
+  { feature: "99.99% SLA",         starter: false,       pro: false,       enterprise: true           },
+  { feature: "Custom domains",     starter: false,       pro: true,        enterprise: true           },
 ];
 
 const renderCell = (v: CellValue) => {
   if (typeof v === "boolean") {
     return v
       ? <Check className="w-5 h-5 text-primary mx-auto" aria-label="Included" />
-      : <X className="w-5 h-5 text-muted-foreground/50 mx-auto" aria-label="Not included" />;
+      : <X     className="w-5 h-5 text-muted-foreground/50 mx-auto" aria-label="Not included" />;
   }
   return <span className="text-sm">{v}</span>;
 };
@@ -59,22 +62,51 @@ const columns: ColumnDef<PricingRow>[] = [
 ];
 
 export const Pricing = () => {
+  const ref = useRef<HTMLElement>(null);
+
   const table = useReactTable({
     data: DATA,
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
 
+  useGSAP(() => {
+    gsap.from(".pricing-heading", {
+      y: 40,
+      opacity: 0,
+      duration: 0.9,
+      ease: "power3.out",
+      scrollTrigger: { trigger: ".pricing-heading", start: "top 85%" },
+    });
+
+    gsap.from(".pricing-table", {
+      y: 50,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out",
+      scrollTrigger: { trigger: ".pricing-table", start: "top 85%" },
+    });
+
+    gsap.from(".price-row", {
+      x: -30,
+      opacity: 0,
+      duration: 0.45,
+      stagger: 0.07,
+      ease: "power2.out",
+      scrollTrigger: { trigger: ".price-row", start: "top 88%" },
+    });
+  }, { scope: ref });
+
   return (
-    <section className="section-perf py-28 bg-secondary/30">
+    <section ref={ref} className="section-perf py-28 bg-secondary/30">
       <div className="max-w-5xl mx-auto px-6">
-        <div className="reveal text-center max-w-2xl mx-auto mb-14">
+        <div className="pricing-heading text-center max-w-2xl mx-auto mb-14">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Simple pricing</h2>
           <p className="mt-4 text-lg text-muted-foreground">
             Start free. Upgrade when your data does.
           </p>
         </div>
-        <div className="reveal rounded-xl border bg-card overflow-hidden">
+        <div className="pricing-table rounded-xl border bg-card overflow-hidden">
           <table className="w-full">
             <thead className="bg-muted/40">
               {table.getHeaderGroups().map((hg) => (
@@ -88,11 +120,8 @@ export const Pricing = () => {
               ))}
             </thead>
             <tbody>
-              {table.getRowModel().rows.map((row, i) => (
-                <tr
-                  key={row.id}
-                  className={`row-reveal border-t d-${(i % 6) + 1}`}
-                >
+              {table.getRowModel().rows.map((row) => (
+                <tr key={row.id} className="price-row border-t">
                   {row.getVisibleCells().map((cell) => (
                     <td key={cell.id} className="px-6 py-4">
                       {flexRender(cell.column.columnDef.cell, cell.getContext())}
